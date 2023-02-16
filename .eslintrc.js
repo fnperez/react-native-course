@@ -1,13 +1,11 @@
 module.exports = {
-  root: true,
-  env: { browser: true, amd: true, node: true, es6: true, jest: true },
   parser: '@typescript-eslint/parser',
-  parserOptions: { project: './tsconfig.json' },
   plugins: [
     '@typescript-eslint',
     'unused-imports',
     'testing-library',
     'autofix',
+    'import',
   ],
   extends: [
     'eslint:recommended',
@@ -15,8 +13,6 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'plugin:@typescript-eslint/recommended',
-    'next',
-    'next/core-web-vitals',
   ],
   overrides: [
     // Only uses Testing Library lint rules in test files
@@ -72,18 +68,10 @@ module.exports = {
         pathGroups: [
           { pattern: 'react', group: 'external', position: 'before' },
           { pattern: '@/src/*', group: 'internal' },
-          { pattern: '@/api/*', group: 'internal' },
           { pattern: '@/components/*', group: 'internal' },
-          { pattern: '@/config/*', group: 'internal' },
-          { pattern: '@/contexts/*', group: 'internal' },
           { pattern: '@/ds/*', group: 'internal' },
-          { pattern: '@/ds', group: 'internal' },
-          { pattern: '@/forms/*', group: 'internal' },
-          { pattern: '@/pages/*', group: 'internal' },
-          { pattern: '@/presenters/*', group: 'internal' },
-          { pattern: '@/styles/*', group: 'internal' },
-          { pattern: '@/utilities/*', group: 'internal' },
-          { pattern: '@/trans', group: 'internal' },
+          { pattern: '@/navigation/*', group: 'internal' },
+          { pattern: '@/screens/*', group: 'internal' },
         ],
         pathGroupsExcludedImportTypes: ['internal', 'react'],
         alphabetize: {

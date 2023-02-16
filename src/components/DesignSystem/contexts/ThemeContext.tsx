@@ -22,7 +22,7 @@ export const useTheme = (): IThemeContext => {
   return theme
 }
 
-export const ThemeProvider = ({
+export const ThemeContainer = ({
   children,
 }: {
   children: React.ReactNode | React.ReactNode[]

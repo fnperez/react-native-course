@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Pressable, Text } from 'react-native'
 import Icon from 'react-native-vector-icons/EvilIcons'
 import { defaultStyle, FilledStyle, LinkStyle, OutlineStyle } from './Style'
-import { useTheme } from '../contexts/ThemeContext'
+import { useTheme } from '@/ds/contexts/ThemeContext'
 
 export interface ButtonProps {
   type: 'filled' | 'outline' | 'link'

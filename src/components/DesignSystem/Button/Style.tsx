@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import type { ITheme } from '../contexts/ThemeContext'
+import type { ITheme } from '@/ds/contexts/ThemeContext'
 
 interface StyleProps {
   theme: ITheme

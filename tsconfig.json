@@ -1,3 +1,16 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "include": [".eslintrc.js"],
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/ds": ["components/DesignSystem/index"],
+      "@/ds/*": ["components/DesignSystem/*"],
+      "@/navigation": ["navigation/index"],
+      "@/screens": ["screens/index"],
+      "@/screens/*": ["screens/*"]
+    }
+  }
 }
