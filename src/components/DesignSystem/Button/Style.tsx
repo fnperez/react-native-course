@@ -1,4 +1,10 @@
 import { StyleSheet } from 'react-native'
+import type { ITheme } from '../contexts/ThemeContext'
+
+interface StyleProps {
+  theme: ITheme
+  active: boolean
+}
 
 export const defaultStyle = StyleSheet.create({
   container: {
@@ -16,25 +22,25 @@ export const defaultStyle = StyleSheet.create({
   },
 })
 
-export const FilledStyle = (active: boolean) =>
+export const FilledStyle = ({ theme: { button }, active }: StyleProps) =>
   StyleSheet.create({
     container: {
       backgroundColor: active ? '#8687E7AF' : '#8687E7',
-      borderRadius: 4,
+      borderRadius: button.rounding,
     },
   })
 
-export const OutlineStyle = (active: boolean) =>
+export const OutlineStyle = ({ theme: { button }, active }: StyleProps) =>
   StyleSheet.create({
     container: {
       backgroundColor: 'transparent',
       borderColor: active ? '#8687E7AF' : '#8687E7',
       borderWidth: 2,
-      borderRadius: 4,
+      borderRadius: button.rounding,
     },
   })
 
-export const LinkStyle = (active: boolean) =>
+export const LinkStyle = ({ active }: StyleProps) =>
   StyleSheet.create({
     container: {
       backgroundColor: 'transparent',
