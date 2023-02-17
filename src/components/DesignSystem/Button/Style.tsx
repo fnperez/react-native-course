@@ -1,4 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
+import { ITheme } from "../contexts/ThemeContext"
+
+interface StyleProps {
+  theme: ITheme, 
+  active: boolean 
+}
 
 export const DefaultStyle = StyleSheet.create({
   container: {
@@ -16,28 +22,31 @@ export const DefaultStyle = StyleSheet.create({
   }
 })
 
-export const FilledStyle = (active: boolean) => StyleSheet.create({
-  container: {
-    backgroundColor: active ? '#8687E7AF' : '#8687E7',
-    borderRadius: 4
-  }
-})
+export const FilledStyle = ({ theme: { button }, active }: StyleProps) => 
+  StyleSheet.create({
+    container: {
+      backgroundColor: active ? '#8687E7AF' : '#8687E7',
+      borderRadius: button.rounding
+    }
+  })
 
-export const OutlineStyle = (active: boolean) => StyleSheet.create({
-  container: {
-    backgroundColor: '#transparent',
-    borderColor: active ? '#8687E7AF' : '#8687E7',
-    borderRadius: 4,
-    borderWidth: 2
-  }
-})
+export const OutlineStyle = ({ theme: { button }, active }: StyleProps) => 
+  StyleSheet.create({
+    container: {
+      backgroundColor: '#transparent',
+      borderColor: active ? '#8687E7AF' : '#8687E7',
+      borderRadius: button.rounding,
+      borderWidth: 2
+    }
+  })
 
-export const LinkStyle = (active: boolean) => StyleSheet.create({
-  container: {
-    backgroundColor: '#transparent',
-    borderWidth: 0
-  },
-  title: {
-    color: active ? '#FFFFFFA0' : '#FFFFFF'
-  }
-})
+export const LinkStyle = ({ active }: StyleProps) => 
+  StyleSheet.create({
+    container: {
+      backgroundColor: '#transparent',
+      borderWidth: 0
+    },
+    title: {
+      color: active ? '#FFFFFFA0' : '#FFFFFF'
+    }
+  })

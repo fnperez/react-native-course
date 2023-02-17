@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Pressable, Text } from 'react-native'
 import { DefaultStyle, OutlineStyle, LinkStyle, FilledStyle } from './Style'
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import { useTheme } from '../contexts/ThemeContext'
 
 export interface ButtonProps {
   type: 'filled' | 'outline' | 'link'
@@ -19,13 +20,15 @@ const STYLE_HASH: Record<ButtonProps['type'], any> = {
 }
 
 const Button = ({ type, title, onPress, icon, testID }: ButtonProps) => {
+  const { theme } = useTheme()
+  
   const [isActive, setIsActive] = useState(false)
   
   const { 
     container: containerStyle,
     title: titleStyle,
     icon: iconStyle,
-  } = STYLE_HASH[type](isActive)
+  } = STYLE_HASH[type]({ theme, active: isActive })
 
   return (
     <Pressable 
