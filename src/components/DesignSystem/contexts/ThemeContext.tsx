@@ -22,7 +22,7 @@ export const useTheme = (): IThemeContext => {
 	return theme
 }
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode | React.ReactNode[] }) => {
+export const ThemeContainer = ({ children }: { children: React.ReactNode | React.ReactNode[] }) => {
 	const [theme, setTheme] = useState<ITheme>({
 		surface: '#1D1D1D',
 		button: {
