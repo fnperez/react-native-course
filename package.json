@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.71.2",
-    "react-native-svg": "^13.8.0"
+    "react-native-svg": "^13.8.0",
+    "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -22,12 +23,13 @@
     "@tsconfig/react-native": "^2.0.2",
     "@types/jest": "^29.2.1",
     "@types/react": "^18.0.24",
+    "@types/react-native-vector-icons": "^6.4.13",
     "@types/react-test-renderer": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
     "autoprefixer": "^10.4.7",
     "babel-jest": "^29.2.1",
-    "eslint": "^8.26.0",
+    "eslint": "^8.23.0",
     "eslint-config-next": "^13.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-autofix": "^1.1.0",
