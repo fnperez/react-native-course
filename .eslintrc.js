@@ -2,7 +2,6 @@ module.exports = {
   root: true,
   env: { browser: true, amd: true, node: true, es6: true, jest: true },
   parser: '@typescript-eslint/parser',
-  parserOptions: { project: './tsconfig.json' },
   plugins: [
     '@typescript-eslint',
     'unused-imports',
