@@ -5,6 +5,9 @@ export interface ITheme {
   button: {
     rounding: number
   }
+  font: {
+    color: string
+  }
 }
 
 export interface IThemeContext {
@@ -16,11 +19,7 @@ export const ThemeContext = React.createContext<IThemeContext>(
   {} as IThemeContext,
 )
 
-export const useTheme = (): IThemeContext => {
-  const theme = useContext(ThemeContext)
-
-  return theme
-}
+export const useTheme = (): IThemeContext => useContext(ThemeContext)
 
 export const ThemeContainer = ({
   children,
@@ -28,9 +27,12 @@ export const ThemeContainer = ({
   children: React.ReactNode | React.ReactNode[]
 }) => {
   const [theme, setTheme] = useState<ITheme>({
-    surface: '#1D1D1D',
+    surface: '#121212',
     button: {
       rounding: 4,
+    },
+    font: {
+      color: '#FFFFFF',
     },
   })
 
