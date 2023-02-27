@@ -1,6 +1,6 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { FirstStep, SecondStep } from '@/screens'
+import { OnBoardingClockStep, OnBoardingRoutineStep } from '@/screens'
 import SCREENS from './screens'
 
 const Stack = createNativeStackNavigator()
@@ -11,8 +11,8 @@ const Router = () => (
     screenOptions={{
       headerShown: false,
     }}>
-    <Stack.Screen name={SCREENS.welcome} component={FirstStep} />
-    <Stack.Screen name={SCREENS.secondStep} component={SecondStep} />
+    <Stack.Screen name={SCREENS.welcome} component={OnBoardingClockStep} />
+    <Stack.Screen name={SCREENS.secondStep} component={OnBoardingRoutineStep} />
   </Stack.Navigator>
 )
 

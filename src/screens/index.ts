@@ -1,4 +1,4 @@
-import FirstStep from './OnBoarding/FirstStep/FirstStep'
-import SecondStep from './OnBoarding/SecondStep/SecondStep'
+import OnBoardingClockStep from './OnBoarding/ClockStep/OnBoardingClockStep'
+import OnBoardingRoutineStep from './OnBoarding/RoutineStep/OnBoardingRoutineStep'
 
-export { FirstStep, SecondStep }
+export { OnBoardingClockStep, OnBoardingRoutineStep }

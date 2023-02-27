@@ -1,7 +1,7 @@
 import React from 'react'
 import { Path, Svg } from 'react-native-svg'
 
-const FirstImage = () => (
+const ClockImage = () => (
   <Svg width={213} height={278} viewBox="0 0 213 278" fill="none">
     <Path
       d="M102.772 178.615c32.856 0 59.491-26.687 59.491-59.608 0-32.92-26.635-59.609-59.491-59.609-32.856 0-59.491 26.688-59.491 59.609 0 32.921 26.635 59.608 59.491 59.608z"
@@ -158,4 +158,4 @@ const FirstImage = () => (
   </Svg>
 )
 
-export default FirstImage
+export default ClockImage

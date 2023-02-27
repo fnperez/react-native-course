@@ -77,6 +77,8 @@ module.exports = {
           { pattern: '@/contexts/*', group: 'internal' },
           { pattern: '@/ds/*', group: 'internal' },
           { pattern: '@/ds', group: 'internal' },
+          { pattern: '@/illustrations/*', group: 'internal' },
+          { pattern: '@/illustrations/*', group: 'internal' },
           { pattern: '@/forms/*', group: 'internal' },
           { pattern: '@/pages/*', group: 'internal' },
           { pattern: '@/presenters/*', group: 'internal' },

@@ -6,13 +6,14 @@ export const ImageStyle = StyleSheet.create({
     height: 278,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 25,
+    margin: 20,
   },
 })
 
 export const TopButtonStyle = StyleSheet.create({
   button: {
     flexDirection: 'row',
+    marginRight: 'auto',
   },
 })
 

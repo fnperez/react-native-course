@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import type { StyleProp, ViewStyle } from 'react-native'
 import { Pressable, Text } from 'react-native'
 import Icon from 'react-native-vector-icons/EvilIcons'
 import { defaultStyle, FilledStyle, LinkStyle, OutlineStyle } from './Style'
@@ -8,6 +9,7 @@ export interface ButtonProps {
   title: string
   onPress: (e: any) => void
 
+  style?: StyleProp<ViewStyle>
   icon?: string
   testID?: string
 }
@@ -18,7 +20,7 @@ const STYLE_HASH: Record<ButtonProps['type'], any> = {
   link: LinkStyle,
 }
 
-const Button = ({ type, title, icon, onPress, testID }: ButtonProps) => {
+const Button = ({ type, title, style, icon, onPress, testID }: ButtonProps) => {
   const [isActive, setIsActive] = useState(false)
 
   const {
@@ -29,7 +31,7 @@ const Button = ({ type, title, icon, onPress, testID }: ButtonProps) => {
 
   return (
     <Pressable
-      style={[defaultStyle.container, containerStyle]}
+      style={[defaultStyle.container, containerStyle, style]}
       onPress={onPress}
       onPressIn={() => setIsActive(true)}
       onPressOut={() => setIsActive(false)}

@@ -2,17 +2,17 @@
   "extends": "@tsconfig/react-native/tsconfig.json",
   "include": [".eslintrc.js"],
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": false,
     "strict": true,
     "baseUrl": "./src",
     "paths": {
-      "@/components/": ["components/"],
+      "@/components/*": ["components/*"],
       "@/ds": ["components/DesignSystem/index"],
-      "@/ds/": ["components/DesignSystem/"],
+      "@/ds/*": ["components/DesignSystem/*"],
+      "@/illustrations": ["components/illustrations/index"],
+      "@/illustrations/*": ["components/illustrations/*"],
       "@/navigation": ["navigation/index"],
       "@/screens": ["screens/index"],
-      "@/screens/": ["screens/"]
+      "@/screens/*": ["screens/*"]
     }
   }
 }

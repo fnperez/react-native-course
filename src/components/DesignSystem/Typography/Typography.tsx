@@ -1,12 +1,12 @@
 import React from 'react'
 import { Text } from 'react-native'
-import Style from './Style'
+import { useTheme } from '@/ds/contexts'
 
 export interface TypographyProps {
   type: 'title' | 'description' | 'helper' | 'normal'
   children: React.ReactNode
   visible: boolean
-  style: any
+  style?: any
 }
 
 const STYLE_HASH = {
@@ -25,8 +25,11 @@ const STYLE_HASH = {
   },
 }
 
-const Typography = ({ type, children, style }: TypographyProps) => (
-  <Text style={[STYLE_HASH[type], Style.container, style]}>{children}</Text>
-)
+const Typography = ({ type, children, style }: TypographyProps) => {
+  const { theme } = useTheme()
+  return (
+    <Text style={[STYLE_HASH[type], theme.font.color, style]}>{children}</Text>
+  )
+}
 
 export default Typography
