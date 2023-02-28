@@ -5,17 +5,23 @@ import Style from './Style'
 export interface TypographyProps {
   type: 'title' | 'description' | 'helper' | 'normal'
   children: React.ReactNode
-  visible: boolean
-  style: any
+
+  style?: any
+  visible?: boolean
 }
 
 const STYLE_HASH = {
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 32,
+    textAlign: 'center',
+    marginTop: 20,
   },
   description: {
     fontSize: 16,
+    textAlign: 'center',
+    marginTop: 50,
+    marginRight: 38,
+    marginLeft: 38,
   },
   helper: {
     fontSize: 14,

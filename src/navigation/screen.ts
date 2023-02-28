@@ -1,5 +1,5 @@
 const SCREENS = {
-  welcome: 'welcome'
+  manageTasks: 'manageTasks'
 }
 
 export default SCREENS

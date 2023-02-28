@@ -7,8 +7,8 @@ import { useTheme } from '../contexts/ThemeContext'
 export interface ButtonProps {
   type: 'filled' | 'outline' | 'link'
   title: string
-  onPress: (e: any) => void
 
+  onPress?: (e: any) => void
   icon?: string
   testID?: string
 }
@@ -16,37 +16,35 @@ export interface ButtonProps {
 const STYLE_HASH: Record<ButtonProps['type'], any> = {
   filled: FilledStyle,
   outline: OutlineStyle,
-  link: LinkStyle 
+  link: LinkStyle,
 }
 
 const Button = ({ type, title, onPress, icon, testID }: ButtonProps) => {
   const { theme } = useTheme()
-  
+
   const [isActive, setIsActive] = useState(false)
-  
-  const { 
+
+  const {
     container: containerStyle,
     title: titleStyle,
     icon: iconStyle,
   } = STYLE_HASH[type]({ theme, active: isActive })
 
   return (
-    <Pressable 
-      style={[ DefaultStyle.container, containerStyle ]} 
-      onPress={ onPress }
-      onPressIn={ () => setIsActive(true) }
-      onPressOut={ () => setIsActive(false) }
-      testID={ testID }>
-      { icon && (
-        <Icon 
-          name={ icon } 
-          size={ 30 } 
-          color={ iconStyle?.color ?? DefaultStyle.icon.color } 
+    <Pressable
+      style={[DefaultStyle.container, containerStyle]}
+      onPress={onPress}
+      onPressIn={() => setIsActive(true)}
+      onPressOut={() => setIsActive(false)}
+      testID={testID}>
+      {icon && (
+        <Icon
+          name={icon}
+          size={30}
+          color={iconStyle?.color ?? DefaultStyle.icon.color}
         />
       )}
-      <Text style={[ DefaultStyle.title, titleStyle ]}>
-        { title }
-      </Text>
+      <Text style={[DefaultStyle.title, titleStyle]}>{title}</Text>
     </Pressable>
   )
 }

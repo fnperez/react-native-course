@@ -1,3 +1,3 @@
-import Welcome from './Welcome/Welcome'
+import ManageTasks from './ManageTasks/ManageTasks'
 
-export { Welcome }
+export { ManageTasks }
