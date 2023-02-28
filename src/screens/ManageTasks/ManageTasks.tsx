@@ -9,7 +9,7 @@ import {
   SkipButton,
 } from './index'
 
-const Welcome = () => {
+const ManageTasks = () => {
   return (
     <Container>
       <SkipButton />
@@ -29,4 +29,4 @@ const Welcome = () => {
   )
 }
 
-export default Welcome
+export default ManageTasks
