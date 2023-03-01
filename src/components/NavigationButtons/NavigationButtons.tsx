@@ -4,9 +4,13 @@ import { Button } from '../DesignSystem'
 
 interface NavigationButtonsProps {
   rightButtonText: string
+  callback: never
 }
 
-const NavigationButtons = ({ rightButtonText }: NavigationButtonsProps) => {
+const NavigationButtons = ({
+  rightButtonText,
+  callback,
+}: NavigationButtonsProps) => {
   return (
     <View
       style={{
@@ -16,7 +20,7 @@ const NavigationButtons = ({ rightButtonText }: NavigationButtonsProps) => {
         marginBottom: 62,
       }}>
       <Button type="link" title="Back" />
-      <Button type="filled" title={rightButtonText} />
+      <Button type="filled" title={rightButtonText} onPress={callback} />
     </View>
   )
 }

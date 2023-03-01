@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 
 import {
+  View,
+  Button,
   Container,
   Typography,
   DisplayImage,
@@ -9,26 +11,24 @@ import {
   ProgressDashes,
   SkipButton,
   SCREENS,
-  View,
-  Button,
-  ManageTasksImage,
+  DailyRoutineImage,
 } from './index'
 
-const ManageTasks = () => {
+const DailyRoutine = () => {
   const navigation = useNavigation()
 
   return (
     <Container>
       <SkipButton />
 
-      <DisplayImage image={<ManageTasksImage />} />
+      <DisplayImage image={<DailyRoutineImage />} />
 
       <ProgressDashes />
 
-      <Typography type="title">Manage your tasks</Typography>
+      <Typography type="title">Create daily routine</Typography>
 
       <Typography type="description">
-        You can easily manage all of your daily tasks in DoMe for free
+        In Uptodo you can create your personalized routine to stay productive
       </Typography>
 
       {/* <NavigationButtons
@@ -43,15 +43,14 @@ const ManageTasks = () => {
           marginTop: 'auto',
           marginBottom: 62,
         }}>
-        <Button type="link" title="Back" />
         <Button
-          type="filled"
-          title="Next"
-          onPress={() => navigation.navigate(SCREENS.dailyRoutine)}
+          type="link"
+          title="Back" /* onPress={navigation.navigate(SCREENS.manageTasks)} */
         />
+        <Button type="filled" title="Next" />
       </View>
     </Container>
   )
 }
 
-export default ManageTasks
+export default DailyRoutine

@@ -1,3 +1,5 @@
+import { View } from 'react-native'
+import { Button } from '../../components/DesignSystem'
 import Container from '../../components/DesignSystem/Container/Container'
 import Typography from '../../components/DesignSystem/Typography/Typography'
 import DisplayImage from '../../components/DisplayImage/DisplayImage'
@@ -5,8 +7,6 @@ import NavigationButtons from '../../components/NavigationButtons/NavigationButt
 import ProgressDashes from '../../components/ProgressDashes/ProgressDashes'
 import SkipButton from '../../components/SkipButton/SkipButton'
 import SCREENS from '../../navigation/screen'
-import { View } from 'react-native'
-import { Button } from '../../components/DesignSystem'
-import ManageTasksImage from '../../components/DesignSystem/illustrations/ManageTasksImage'
+import DailyRoutineImage from '../../components/DesignSystem/illustrations/DailyRoutineImage'
 
-export { Container, Typography, DisplayImage, NavigationButtons, ProgressDashes, SkipButton, SCREENS, View, Button, ManageTasksImage }
+export { View, Button, Container, Typography, DisplayImage, NavigationButtons, ProgressDashes, SkipButton, SCREENS, DailyRoutineImage }

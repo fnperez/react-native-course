@@ -1,11 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
-import ManageTasksImage from '../DesignSystem/illustrations/ManageTasksImage'
 
-const DisplayImage = () => {
+const DisplayImage = ({ image }: any) => {
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-      <ManageTasksImage />
+      {image}
     </View>
   )
 }
