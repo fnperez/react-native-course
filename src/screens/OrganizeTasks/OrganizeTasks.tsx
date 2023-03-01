@@ -8,35 +8,34 @@ import {
   NavigationButtons,
   ProgressDashes,
   SkipButton,
-  SCREENS,
-  ManageTasksImage,
+  OrganizeTasksImage,
 } from './index'
 
-const ManageTasks = () => {
+const OrganizeTasks = () => {
   const navigation = useNavigation()
+  const popAction = StackActions.pop(1)
 
   return (
     <Container>
       <SkipButton />
 
-      <DisplayImage image={<ManageTasksImage />} />
+      <DisplayImage image={<OrganizeTasksImage />} />
 
       <ProgressDashes />
 
-      <Typography type="title">Manage your tasks</Typography>
+      <Typography type="title">Organize your tasks</Typography>
 
       <Typography type="description">
-        You can easily manage all of your daily tasks in DoMe for free
+        You can organize your daily tasks by adding your tasks into separate
+        categories
       </Typography>
 
       <NavigationButtons
         rightButtonText="Next"
-        nextButtonAction={() =>
-          navigation.dispatch(StackActions.push(SCREENS.dailyRoutine))
-        }
+        goBackAction={() => navigation.dispatch(popAction)}
       />
     </Container>
   )
 }
 
-export default ManageTasks
+export default OrganizeTasks

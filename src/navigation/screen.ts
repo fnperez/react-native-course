@@ -1,6 +1,7 @@
 const SCREENS = {
   manageTasks: 'manageTasks',
-  dailyRoutine: 'dailyRoutine'
+  dailyRoutine: 'dailyRoutine',
+  organizeTasks: 'organizeTasks'
 }
 
 export default SCREENS

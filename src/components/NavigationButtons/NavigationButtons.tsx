@@ -4,12 +4,14 @@ import { Button } from '../DesignSystem'
 
 interface NavigationButtonsProps {
   rightButtonText: string
-  callback: never
+  nextButtonAction?: any
+  goBackAction?: any
 }
 
 const NavigationButtons = ({
   rightButtonText,
-  callback,
+  nextButtonAction,
+  goBackAction,
 }: NavigationButtonsProps) => {
   return (
     <View
@@ -19,8 +21,12 @@ const NavigationButtons = ({
         marginTop: 'auto',
         marginBottom: 62,
       }}>
-      <Button type="link" title="Back" />
-      <Button type="filled" title={rightButtonText} onPress={callback} />
+      <Button type="link" title="Back" onPress={goBackAction} />
+      <Button
+        type="filled"
+        title={rightButtonText}
+        onPress={nextButtonAction}
+      />
     </View>
   )
 }
