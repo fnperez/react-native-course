@@ -1,5 +1,6 @@
 const SCREENS = {
-  welcome: 'welcome',
+  ONBOARDING: 'ONBOARDING',
+  WELCOME: 'WELCOME',
 }
 
 export default SCREENS

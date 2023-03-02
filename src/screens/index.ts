@@ -1,3 +1,4 @@
-import Welcome from './Welcome/Welcome'
+import OnBoarding from './OnBoarding'
+import Welcome from './Welcome'
 
-export { Welcome }
+export { Welcome, OnBoarding }
