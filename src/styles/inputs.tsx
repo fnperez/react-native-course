@@ -9,7 +9,6 @@ const BaseTextInput = styled.TextInput`
   background-color: ${props => props.theme.colors.surface};
   color: ${props => props.theme.colors.white};
   font-size: 16px;
-  font-weight: bold;
   padding-vertical: ${props => props.theme.paddings.input.vertical}px;
   padding-horizontal: ${props => props.theme.paddings.input.horizontal}px;
   border-radius: ${props => props.theme.rounding}px;

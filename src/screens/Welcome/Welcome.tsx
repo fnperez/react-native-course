@@ -19,7 +19,9 @@ const Welcome = ({ navigation }: Props) => (
         <Filled onPress={() => navigation.navigate(SCREENS.LOGIN)}>
           Login
         </Filled>
-        <Outline>create account</Outline>
+        <Outline onPress={() => navigation.navigate(SCREENS.REGISTER)}>
+          create account
+        </Outline>
       </BottomContainer>
     </Container>
   </SafeContainer>
