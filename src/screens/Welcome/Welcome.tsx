@@ -1,9 +1,11 @@
 import React from 'react'
+import type { Props } from './types'
+import SCREENS from '@/src/navigation/screens'
 import { Filled, Outline } from '@/styles/button'
 import { ContentText, Title } from '@/styles/text'
 import { BottomContainer, Container, SafeContainer } from '@/styles/wrapper'
 
-const Welcome = () => (
+const Welcome = ({ navigation }: Props) => (
   <SafeContainer>
     <Container>
       <Container gap={28} noPadding>
@@ -14,7 +16,9 @@ const Welcome = () => (
       </Container>
 
       <BottomContainer gap={28}>
-        <Filled>Login</Filled>
+        <Filled onPress={() => navigation.navigate(SCREENS.LOGIN)}>
+          Login
+        </Filled>
         <Outline>create account</Outline>
       </BottomContainer>
     </Container>

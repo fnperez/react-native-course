@@ -1,4 +1,6 @@
+import Login from './Login/Login'
 import OnBoarding from './OnBoarding'
-import Welcome from './Welcome'
+import Register from './Register/Register'
+import Welcome from './Welcome/Welcome'
 
-export { Welcome, OnBoarding }
+export { Welcome, OnBoarding, Login, Register }

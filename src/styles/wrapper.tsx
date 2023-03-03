@@ -1,34 +1,34 @@
-import type { ThemeProps } from 'styled-components'
-import styled from 'styled-components'
-import type { Theme } from '@/theme'
+import styled from 'styled-components/native'
 
 export const SafeContainer = styled.SafeAreaView`
   flex: 1;
-  background-color: ${(props: ThemeProps<Theme>) => props.theme.colors.surface};
+  background-color: ${props => props.theme.colors.surface};
 `
 
-export const Container = styled.View(
-  (
-    props: ThemeProps<Theme> & {
-      center: boolean
-      noPadding: boolean
-      gap: number
-    },
-  ) => ({
-    flex: 1, 
-    ...(props.noPadding
-      ? {}
-      : {
-          paddingHorizontal: props.theme.paddings.container.horizontal,
-          paddingVertical: props.theme.paddings.container.vertical,
-        }),
-    ...(props.center ? { alignItems: 'center' } : {}),
-    backgroundColor: props.theme.colors.surface,
-    gap: props.gap,
-  }),
-)
-
-export const BottomContainer = styled.View((props: { gap: number }) => ({
-  marginTop: 'auto',
+export const InnerContainer = styled.View<{
+  center?: boolean
+  noPadding?: boolean
+  gap?: number
+  dir?: 'row' | 'column'
+}>(props => ({
+  ...(props.noPadding
+    ? {}
+    : {
+        paddingHorizontal: props.theme.paddings.container.horizontal,
+        paddingVertical: props.theme.paddings.container.vertical,
+      }),
+  ...(props.center ? { alignItems: 'center', justifyContent: 'center' } : {}),
+  backgroundColor: props.theme.colors.surface,
   gap: props.gap,
+  flexDirection: props.dir || 'column',
 }))
+
+export const Container = styled(InnerContainer)`
+  flex: 1;
+`
+
+export const BottomContainer = styled(InnerContainer).attrs({
+  noPadding: true,
+})`
+  margin-top: auto;
+`

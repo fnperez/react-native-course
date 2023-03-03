@@ -4,6 +4,7 @@
   "compilerOptions": {
     "esModuleInterop": false,
     "strict": true,
+    "types": ["@types/styled-components-react-native"],
     "paths": {
       "@/src/*": ["./src/*"],
       "@/components/*": ["./src/components/*"],

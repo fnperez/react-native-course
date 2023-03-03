@@ -1,9 +1,9 @@
-import React from 'react';
-import {ThemeProvider} from 'styled-components';
-import {NavigationContainer} from '@react-navigation/native';
-import RootNavigator from '@/navigation/RootNavigator';
-import {StatusBar} from 'react-native';
-import theme from './theme';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { StatusBar } from 'react-native'
+import { ThemeProvider } from 'styled-components'
+import RootNavigator from '@/navigation/RootNavigator'
+import theme from './theme'
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -12,6 +12,6 @@ const App = () => (
       <RootNavigator />
     </NavigationContainer>
   </ThemeProvider>
-);
+)
 
-export default App;
+export default App
