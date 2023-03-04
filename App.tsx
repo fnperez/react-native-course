@@ -1,14 +1,17 @@
 import React from 'react'
-import Router from './src/navigation/RootNavigator'
+import theme from './src/theme'
+import RootNavigator from './src/navigation/RootNavigator'
+import { StatusBar } from 'react-native'
+import { ThemeProvider } from 'styled-components'
 import { NavigationContainer } from '@react-navigation/native'
-import { ThemeContainer } from './src/components/DesignSystem/contexts/ThemeContext'
 
 const App = () => (
-  <ThemeContainer>
+  <ThemeProvider theme={theme}>
+    <StatusBar barStyle="light-content" />
     <NavigationContainer>
-      <Router />
+      <RootNavigator />
     </NavigationContainer>
-  </ThemeContainer>
+  </ThemeProvider>
 )
 
 export default App

@@ -1,7 +1,7 @@
 import React from 'react'
-import { G, Mask, Path, Svg } from 'react-native-svg'
+import { G, Mask, Path, Rect, Svg } from 'react-native-svg'
 
-const OrganizeTasksImage = () => (
+const Tasks = () => (
   <Svg width="257" height="251" viewBox="0 0 257 251" fill="none">
     <Path
       d="M207.265 172.287H206.611V231.819H207.265V172.287Z"
@@ -192,7 +192,6 @@ const OrganizeTasksImage = () => (
     />
     <Mask
       id="mask0_2_12421"
-      style="mask-type:alpha"
       maskUnits="userSpaceOnUse"
       x="81"
       y="145"
@@ -293,7 +292,8 @@ const OrganizeTasksImage = () => (
       d="M211.615 17.3549C211.597 18.1364 211.278 18.8807 210.724 19.4335C210.171 19.9863 209.427 20.3052 208.645 20.3241C207.85 20.3243 207.087 20.0139 206.518 19.4591C205.949 18.9043 205.62 18.1491 205.6 17.3549V3.04341C205.6 2.23625 205.921 1.46215 206.492 0.891398C207.063 0.320648 207.837 0 208.645 0C209.44 0.0193772 210.195 0.348559 210.75 0.917223C211.305 1.48589 211.616 2.24895 211.615 3.04341V17.3549Z"
       fill="#425AC2"
     />
+    <Rect x="16" y="94" width="100" height="100" fill="#D9D9D9" />
   </Svg>
 )
 
-export default OrganizeTasksImage
+export default Tasks

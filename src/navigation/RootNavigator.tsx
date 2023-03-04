@@ -1,18 +1,17 @@
 import React from 'react'
 import SCREENS from './screen'
-import { DailyRoutine, ManageTasks, OrganizeTasks } from '../screens'
+import OnBoarding from '../screens/OnBoarding/OnBoarding'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 const Stack = createNativeStackNavigator()
 
-const Router = () => (
+const RootNavigator = () => (
   <Stack.Navigator
-    initialRouteName={SCREENS.manageTasks}
+    initialRouteName={SCREENS.ONBOARDING}
     screenOptions={{ headerShown: false }}>
-    <Stack.Screen name={SCREENS.manageTasks} component={ManageTasks} />
-    <Stack.Screen name={SCREENS.dailyRoutine} component={DailyRoutine} />
-    <Stack.Screen name={SCREENS.organizeTasks} component={OrganizeTasks} />
+    <Stack.Screen name={SCREENS.ONBOARDING} component={OnBoarding} />
+    {/* <Stack.Screen name={SCREENS.welcome} component={Welcome} /> */}
   </Stack.Navigator>
 )
 
-export default Router
+export default RootNavigator

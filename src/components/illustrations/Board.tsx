@@ -1,7 +1,7 @@
 import React from 'react'
 import { G, Mask, Path, Svg } from 'react-native-svg'
 
-const DailyRoutineImage = () => (
+const Board = () => (
   <Svg width="271" height="296" viewBox="0 0 271 296" fill="none">
     <Path
       d="M232.937 265.807C230.55 265.326 224.09 260.298 218.837 246.407C215.825 238.463 207.356 197.533 218.837 194.662C230.318 191.791 228.164 212.357 228.164 231.306C228.164 242.85 232.937 265.807 232.937 265.807Z"
@@ -277,7 +277,6 @@ const DailyRoutineImage = () => (
     />
     <Mask
       id="mask0_2_12285"
-      style="mask-type:alpha"
       maskUnits="userSpaceOnUse"
       x="166"
       y="153"
@@ -332,7 +331,6 @@ const DailyRoutineImage = () => (
     />
     <Mask
       id="mask1_2_12285"
-      style="mask-type:alpha"
       maskUnits="userSpaceOnUse"
       x="130"
       y="98"
@@ -355,7 +353,6 @@ const DailyRoutineImage = () => (
     </G>
     <Mask
       id="mask2_2_12285"
-      style="mask-type:alpha"
       maskUnits="userSpaceOnUse"
       x="52"
       y="137"
@@ -378,7 +375,6 @@ const DailyRoutineImage = () => (
     </G>
     <Mask
       id="mask3_2_12285"
-      style="mask-type:alpha"
       maskUnits="userSpaceOnUse"
       x="91"
       y="175"
@@ -389,7 +385,7 @@ const DailyRoutineImage = () => (
         fill="#FFC1C1"
       />
     </Mask>
-    <G gmask="url(#mask3_2_12285)">
+    <G mask="url(#mask3_2_12285)">
       <Path
         d="M78.9829 161.194L76.7913 163.39L130.573 217.263L132.765 215.068L78.9829 161.194Z"
         fill="#425AC2"
@@ -433,7 +429,6 @@ const DailyRoutineImage = () => (
     />
     <Mask
       id="mask4_2_12285"
-      style="mask-type:alpha"
       maskUnits="userSpaceOnUse"
       x="157"
       y="197"
@@ -489,4 +484,4 @@ const DailyRoutineImage = () => (
   </Svg>
 )
 
-export default DailyRoutineImage
+export default Board

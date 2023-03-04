@@ -1,3 +1,18 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "include": [".eslintrc.js", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+  "compilerOptions": {
+    "esModuleInterop": false,
+    "strict": true,
+    "types": ["@types/styled-components-react-native"],
+    "paths": {
+      "@/src/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/navigation/*": ["./src/navigation/*"],
+      "@/screens": ["./src/screens/index"],
+      "@/screens/*": ["./src/screens/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/theme": ["./src/theme.ts"]
+    }
+  }
 }
