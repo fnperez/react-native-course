@@ -28,7 +28,7 @@ const Login = ({ navigation }: Props) => {
           <Filled case="none">Login</Filled>
         </InnerContainer>
 
-        <BottomContainer center dir="row" gap={5}>
+        <BottomContainer center dir="row" paddingBottom={20} gap={5}>
           <ContentText>Don't have an account?</ContentText>
           <Link
             case="none"

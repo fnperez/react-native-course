@@ -7,6 +7,7 @@ export const SafeContainer = styled.SafeAreaView`
 export const InnerContainer = styled.View<{
   center?: boolean
   noPadding?: boolean
+  paddingBottom?: number
   gap?: number
   dir?: 'row' | 'column'
 }>(props => ({
@@ -17,6 +18,7 @@ export const InnerContainer = styled.View<{
         paddingVertical: props.theme.paddings.container.vertical,
       }),
   ...(props.center ? { alignItems: 'center', justifyContent: 'center' } : {}),
+  paddingBottom: props.paddingBottom,
   backgroundColor: props.theme.colors.surface,
   gap: props.gap,
   flexDirection: props.dir || 'column',
