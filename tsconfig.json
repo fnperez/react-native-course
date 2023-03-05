@@ -4,15 +4,6 @@
   "compilerOptions": {
     "esModuleInterop": false,
     "strict": true,
-    "types": ["@types/styled-components-react-native"],
-    "paths": {
-      "@/src/*": ["./src/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/navigation/*": ["./src/navigation/*"],
-      "@/screens": ["./src/screens/index"],
-      "@/screens/*": ["./src/screens/*"],
-      "@/styles/*": ["./src/styles/*"],
-      "@/theme": ["./src/theme.ts"]
-    }
+    "types": ["@types/styled-components-react-native"]
   }
 }

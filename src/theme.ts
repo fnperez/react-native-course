@@ -5,11 +5,13 @@ type colors = {
   primary: string
   primaryLight: string
   gray: string
+  error: string
 }
 
 type paddings = {
   container: { vertical: number; horizontal: number }
   button: { vertical: number; horizontal: number }
+  input: { vertical: number; horizontal: number }
 }
 
 export interface Theme {
@@ -28,6 +30,7 @@ const theme: Theme = {
     primary: '#8875FF',
     primaryLight: '#8875E0',
     gray: '#CCC',
+    error: '#E71D36'
   },
   paddings: {
     container: {
@@ -38,6 +41,10 @@ const theme: Theme = {
       vertical: 12,
       horizontal: 24,
     },
+    input: {
+      vertical: 12,
+      horizontal: 21,
+    }
   },
   rounding: 4,
 }

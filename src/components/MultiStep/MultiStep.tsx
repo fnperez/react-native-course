@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { ContainerProps, StepProps } from '.'
-import { Link } from '../styles/button'
-import { Container as StyledContainer } from '../styles/wrapper'
+import { Link } from '../../styles/button'
+import { Container as StyledContainer } from '../../styles/wrapper'
 
 import {
   Actions,
@@ -15,7 +15,6 @@ import {
 const Step = ({ header, gap, dots, children }: StepProps) => (
   <>
     <StepHeader>{header && header()}</StepHeader>
-
     {dots && dots}
     <StepContainer gap={gap} center noPadding>
       {children}
@@ -59,7 +58,7 @@ const Container = ({
   )
 
   return (
-    <StyledContainer center gap={0} noPadding={false}>
+    <StyledContainer center gap={0}>
       {step && React.cloneElement(step, { dots: Dots })}
 
       <Actions>

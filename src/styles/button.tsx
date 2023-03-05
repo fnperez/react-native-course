@@ -1,18 +1,17 @@
 import React from 'react'
-import { ContentText } from './text'
 import styled from 'styled-components/native'
+import { ContentText, DefaultProps as TextProps } from './text'
 import type { PropsWithChildren } from 'react'
-import type { ThemeProps } from 'styled-components'
 import type { TouchableOpacityProps } from 'react-native'
-import type { Theme } from '../../theme'
 
-type BaseButtonProps = ThemeProps<Theme> & {
-  type: 'filled' | 'outline' | 'link'
+type BaseButtonProps = {
+  type?: 'filled' | 'outline' | 'link'
   rounded?: boolean
   noPadding?: boolean
+  case?: TextProps['case']
 } & TouchableOpacityProps
 
-const BaseButton = styled.TouchableOpacity((props: BaseButtonProps) => {
+const BaseButton = styled.TouchableOpacity<BaseButtonProps>(props => {
   const TYPE_HASH = {
     filled: {
       backgroundColor:
@@ -38,33 +37,35 @@ const BaseButton = styled.TouchableOpacity((props: BaseButtonProps) => {
         }),
     ...(props.rounded ? { borderRadius: props.theme.rounding } : {}),
     alignItems: 'center',
-    ...TYPE_HASH[props.type],
+    ...TYPE_HASH[props.type || 'filled'],
   }
 })
 
 export const Link = ({
   children,
   ...props
-}: PropsWithChildren<TouchableOpacityProps>) => (
+}: PropsWithChildren<BaseButtonProps>) => (
   <BaseButton type="link" noPadding {...props}>
-    <ContentText case="uppercase">{children}</ContentText>
+    <ContentText color="gray" case={props.case || 'uppercase'}>
+      {children}
+    </ContentText>
   </BaseButton>
 )
 
 export const Filled = ({
   children,
   ...props
-}: PropsWithChildren<TouchableOpacityProps>) => (
+}: PropsWithChildren<BaseButtonProps>) => (
   <BaseButton type="filled" rounded {...props}>
-    <ContentText case="uppercase">{children}</ContentText>
+    <ContentText case={props.case || 'uppercase'}>{children}</ContentText>
   </BaseButton>
 )
 
 export const Outline = ({
   children,
   ...props
-}: PropsWithChildren<TouchableOpacityProps>) => (
+}: PropsWithChildren<BaseButtonProps>) => (
   <BaseButton type="outline" rounded {...props}>
-    <ContentText case="uppercase">{children}</ContentText>
+    <ContentText case={props.case || 'uppercase'}>{children}</ContentText>
   </BaseButton>
 )

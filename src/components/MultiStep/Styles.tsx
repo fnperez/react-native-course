@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
-import { Filled } from '../styles/button'
-import { Container } from '../styles/wrapper'
+import { Filled } from '../../styles/button'
+import { Container } from '../../styles/wrapper'
 
 import type { Theme } from '../../theme'
 import type { ThemeProps } from 'styled-components'
