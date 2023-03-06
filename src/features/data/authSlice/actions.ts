@@ -26,3 +26,22 @@ export const register = createAsyncThunk(
     return user
   },
 )
+
+export const login = createAsyncThunk(
+  'auth/login',
+  async (
+    credentials: Credentials,
+    thunkAPI,
+  ): Promise<AuthState['loggedUser']> => {
+    const rawUser = await AsyncStorage.getItem(credentials.email)
+    const user = JSON.parse(rawUser ?? '')
+
+    if (!rawUser || user.password !== credentials.password) {
+      throw thunkAPI.rejectWithValue(
+        `User with email ${credentials.email} not found or password is incorrect.`,
+      )
+    }
+
+    return user
+  },
+)

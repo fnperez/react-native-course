@@ -17,9 +17,7 @@ const useRegister = () => {
     const promise = dispatch(register({ email, password }))
 
     try {
-      const user = await promise.unwrap()
-
-      Alert.alert('SUCCESS!', `User ${user.email} was created!`)
+      await promise.unwrap()
 
       // TODO: REDIRECT TO LIST
     } catch (err: string | any) {
