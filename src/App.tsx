@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native'
 import { Provider as StoreProvider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import RootNavigator from '@/navigation/RootNavigator'
+import Layout from './components/Layout/Layout'
 import { store } from './store'
 import theme from './theme'
 
@@ -12,7 +13,9 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="light-content" />
       <NavigationContainer>
-        <RootNavigator />
+        <Layout>
+          <RootNavigator />
+        </Layout>
       </NavigationContainer>
     </ThemeProvider>
   </StoreProvider>

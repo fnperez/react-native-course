@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import type { AuthState, Credentials } from './types'
+import { showLoader } from '@/src/features/ui/layoutSlice/layoutSlice'
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -8,22 +9,28 @@ export const register = createAsyncThunk(
     credentials: Credentials,
     thunkAPI,
   ): Promise<AuthState['loggedUser']> => {
-    const rawUser = await AsyncStorage.getItem(credentials.email)
+    thunkAPI.dispatch(showLoader(true))
 
-    if (rawUser) {
-      throw thunkAPI.rejectWithValue(
-        `A user with email ${credentials.email} already exists.`,
-      )
+    try {
+      const rawUser = await AsyncStorage.getItem(credentials.email)
+
+      if (rawUser) {
+        throw thunkAPI.rejectWithValue(
+          `A user with email ${credentials.email} already exists.`,
+        )
+      }
+
+      const user = {
+        ...credentials,
+        createdAt: new Date().getDate(),
+      }
+
+      await AsyncStorage.setItem(credentials.email, JSON.stringify(user))
+
+      return user
+    } finally {
+      thunkAPI.dispatch(showLoader(false))
     }
-
-    const user = {
-      ...credentials,
-      createdAt: new Date().getDate(),
-    }
-
-    await AsyncStorage.setItem(credentials.email, JSON.stringify(user))
-
-    return user
   },
 )
 
@@ -33,15 +40,21 @@ export const login = createAsyncThunk(
     credentials: Credentials,
     thunkAPI,
   ): Promise<AuthState['loggedUser']> => {
-    const rawUser = await AsyncStorage.getItem(credentials.email)
-    const user = JSON.parse(rawUser ?? '')
+    thunkAPI.dispatch(showLoader(true))
 
-    if (!rawUser || user.password !== credentials.password) {
-      throw thunkAPI.rejectWithValue(
-        `User with email ${credentials.email} not found or password is incorrect.`,
-      )
+    try {
+      const rawUser = await AsyncStorage.getItem(credentials.email)
+      const user = JSON.parse(rawUser ?? '')
+
+      if (!rawUser || user.password !== credentials.password) {
+        throw thunkAPI.rejectWithValue(
+          `User with email ${credentials.email} not found or password is incorrect.`,
+        )
+      }
+
+      return user
+    } finally {
+      thunkAPI.dispatch(showLoader(false))
     }
-
-    return user
   },
 )

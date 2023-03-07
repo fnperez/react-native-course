@@ -12,7 +12,7 @@ const useLogin = () => {
     const promise = dispatch(login(credentials))
 
     try {
-      promise.unwrap()
+      await promise.unwrap()
     } catch (err: string | any) {
       Alert.alert('Error!', err)
     }
