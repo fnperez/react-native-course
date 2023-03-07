@@ -1,5 +1,5 @@
 import React from 'react'
-import SCREENS from '../../navigation/screen'
+import SCREENS from '../../navigation/screens'
 import TextInput from '../../styles/inputs'
 import useRegister from '../../presenters/Register/useRegister'
 import { Props } from './types'

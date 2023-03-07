@@ -1,6 +1,6 @@
 import React from 'react'
 import TextInput from '../../styles/inputs'
-import SCREENS from '../../navigation/screen'
+import SCREENS from '../../navigation/screens'
 import { Props } from './types'
 import { Filled, Link } from '../../styles/button'
 import { ContentText, Title } from '../../styles/text'

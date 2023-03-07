@@ -1,6 +1,6 @@
 import React from 'react'
 import theme from '../../theme'
-import SCREENS from '../../navigation/screen'
+import SCREENS from '../../navigation/screens'
 import { Props } from './types'
 import { ContentText, Title } from '../../styles/text'
 import { Filled, Outline } from '../../styles/button'

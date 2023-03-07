@@ -1,5 +1,5 @@
 import React from 'react'
-import SCREENS from '../../navigation/screen'
+import SCREENS from '../../navigation/screens'
 import MultiStep from '../../components/MultiStep/MultiStep'
 import { ContentText, Title } from '../../styles/text'
 import { SafeContainer } from '../../styles/wrapper'
