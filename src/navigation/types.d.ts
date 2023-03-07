@@ -1,4 +1,4 @@
-import SCREENS from "./screen"
+import SCREENS from "./screens"
 
 export type RootNavigatorParamList = {
   [SCREENS.ONBOARDING]: undefined

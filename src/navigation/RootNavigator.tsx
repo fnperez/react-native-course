@@ -1,6 +1,6 @@
 import React from 'react'
 import theme from '../theme'
-import SCREENS from './screen'
+import SCREENS from './screens'
 import { Login, OnBoarding, Register, Welcome } from '../screens'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import type { RootNavigatorParamList } from './types'
