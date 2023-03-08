@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { register } from './actions'
+import { register, login } from './actions'
 import type { AuthState } from './types'
 
 const initialState: AuthState = {
@@ -10,9 +10,9 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    login: (state, action) => {
-      console.log(state, action)
-    },
+    /* login: (state, action) => {
+      state.loggedUser = action.payload
+    }, */
     logout: (state) => {
       state.loggedUser = undefined
     },
@@ -20,12 +20,16 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(register.fulfilled, (state, action) => {
       state.loggedUser = action.payload
-    })
+    });
+
+    builder.addCase(login.fulfilled, (state, action) => {
+      state.loggedUser = action.payload
+    });
   }
 })
 
-export { register }
+export { login, register }
 
-export const { login, logout } = authSlice.actions
+export const { logout } = authSlice.actions
 
 export default authSlice.reducer
