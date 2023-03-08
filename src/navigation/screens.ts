@@ -3,6 +3,8 @@ export enum SCREENS {
   WELCOME = 'WELCOME',
   LOGIN = 'LOGIN',
   REGISTER = 'REGISTER',
+
+  HOME = 'HOME',
 }
 
 export default SCREENS

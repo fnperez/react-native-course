@@ -1,33 +1,17 @@
 import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import SCREENS from './screens'
-import type { RootNavigatorParamList } from './types'
-import { Login, OnBoarding, Register, Welcome } from '@/screens'
-import theme from '@/theme'
+import { useSelector } from 'react-redux'
+import AuthenticatedNavigator from './AuthenticatedNavigator'
+import UnauthenticatedNavigator from './UnauthenticatedNavigator'
+import { selectIsLoggedIn } from '@/features/data/authSlice/selectors'
 
-const Stack = createNativeStackNavigator<RootNavigatorParamList>()
+const RootNavigator = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn)
 
-const RootNavigator = () => (
-  <Stack.Navigator
-    initialRouteName={SCREENS.ONBOARDING}
-    screenOptions={{
-      headerShown: true,
-      headerTintColor: theme.colors.white,
-      headerTitle: '',
-      headerBackTitleVisible: false,
-      headerStyle: {
-        backgroundColor: theme.colors.surface,
-      },
-    }}>
-    <Stack.Screen
-      name={SCREENS.ONBOARDING}
-      component={OnBoarding}
-      options={{ headerShown: false }}
-    />
-    <Stack.Screen name={SCREENS.WELCOME} component={Welcome} />
-    <Stack.Screen name={SCREENS.LOGIN} component={Login} />
-    <Stack.Screen name={SCREENS.REGISTER} component={Register} />
-  </Stack.Navigator>
-)
+  if (isLoggedIn) {
+    return <AuthenticatedNavigator />
+  }
+
+  return <UnauthenticatedNavigator />
+}
 
 export default RootNavigator

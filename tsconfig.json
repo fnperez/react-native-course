@@ -12,7 +12,8 @@
       "@/screens": ["./src/screens/index"],
       "@/screens/*": ["./src/screens/*"],
       "@/styles/*": ["./src/styles/*"],
-      "@/theme": ["./src/theme.ts"]
+      "@/theme": ["./src/theme.ts"],
+      "@/features/*": ["./src/features/*"]
     }
   }
 }
