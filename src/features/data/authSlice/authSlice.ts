@@ -10,21 +10,20 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    /* login: (state, action) => {
-      state.loggedUser = action.payload
-    }, */
+
     logout: (state) => {
       state.loggedUser = undefined
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(register.fulfilled, (state, action) => {
-      state.loggedUser = action.payload
-    });
+    builder
+      .addCase(register.fulfilled, (state, action) => {
+        state.loggedUser = action.payload
+      })
 
-    builder.addCase(login.fulfilled, (state, action) => {
-      state.loggedUser = action.payload
-    });
+      .addCase(login.fulfilled, (state, action) => {
+        state.loggedUser = action.payload
+      })
   }
 })
 
