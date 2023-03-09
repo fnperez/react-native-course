@@ -1,37 +1,51 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { showLoader } from '../../ui/layoutSlice/layoutSlice'
 import type { AuthState, Credentials } from './types'
 
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials: Credentials, thunkAPI): Promise<AuthState['loggedUser']> => {
-    const rawUser = await AsyncStorage.getItem(credentials.email)
+    thunkAPI.dispatch(showLoader(true))
 
-    if (rawUser) {
-      throw thunkAPI.rejectWithValue(
-        `A user with email ${credentials.email} already exists.`
-      )
+    try {
+      const rawUser = await AsyncStorage.getItem(credentials.email)
+
+      if (rawUser) {
+        throw thunkAPI.rejectWithValue(
+          `A user with email ${credentials.email} already exists.`
+        )
+      }
+
+      const user = {
+        ...credentials,
+        createdAt: new Date().getDate()
+      }
+
+      await AsyncStorage.setItem(credentials.email, JSON.stringify(user))
+
+      return user
+    } finally {
+      thunkAPI.dispatch(showLoader(false))
     }
-
-    const user = {
-      ...credentials,
-      createdAt: new Date().getDate()
-    }
-
-    await AsyncStorage.setItem(credentials.email, JSON.stringify(user))
-
-    return user
   })
 
 export const login = createAsyncThunk(
   'auth/login',
   async (credentials: Credentials, thunkAPI): Promise<AuthState['loggedUser']> => {
-    const rawUser = await AsyncStorage.getItem(credentials.email)
-    const user = JSON.parse(rawUser ?? '')
+    thunkAPI.dispatch(showLoader(true))
 
-    if (!rawUser || user.password !== credentials.password) {
-      throw thunkAPI.rejectWithValue(`Email ${credentials.email} not found or password incorrect.`)
+    try {
+      const rawUser = await AsyncStorage.getItem(credentials.email)
+      const user = JSON.parse(rawUser ?? '')
+
+      if (!rawUser || user.password !== credentials.password) {
+        throw thunkAPI.rejectWithValue(`Email ${credentials.email} not found or password incorrect.`)
+      }
+
+      return user
     }
-
-    return user
+    finally {
+      thunkAPI.dispatch(showLoader(false))
+    }
   })

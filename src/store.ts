@@ -5,7 +5,7 @@ import logger from 'redux-logger'
 
 export const store = configureStore({
   reducer: combineReducers({
-    // ui,
+    ui,
     data
   }),
   middleware: (getDefaultMiddleware) =>
@@ -16,4 +16,4 @@ export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
 export const useAppDispatch = () => useDispatch<typeof store.dispatch>()
-export const appSelector = (state: RootState) => state
+export const appSelector = (state: RootState): RootState => state
