@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "include": [".eslintrc.js", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+  "exclude": ["./libs/*"],
   "compilerOptions": {
     "esModuleInterop": false,
     "strict": true,
