@@ -15,7 +15,8 @@ const app = express();
 // Handle MongoDB Connection
 mongoose
   .connect(mongo.localConnString, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
   })
   .then(() => {
     console.log("Connected to database!");

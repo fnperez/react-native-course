@@ -1,15 +1,17 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import { ui, data } from './features'
 import logger from 'redux-logger'
+import { todoApi } from './services/todos/todoApi'
 
 export const store = configureStore({
-  reducer: combineReducers({
+  reducer: {
     ui,
-    data
-  }),
+    data,
+    [todoApi.reducerPath]: todoApi.reducer
+  },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(logger)
+    getDefaultMiddleware().concat(todoApi.middleware, logger)
 })
 
 export type RootState = ReturnType<typeof store.getState>
