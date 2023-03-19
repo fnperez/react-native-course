@@ -2,8 +2,8 @@ export interface BaseTodo {
 	title?: string
 	description?: string
 	oneDate?: string
-	cardColor?:string
-	isCompleted?:boolean
+	cardColor?: string
+	isCompleted?: boolean
 	timestamps: {
 		createdOn?: string
 		modifiedOn?: string
@@ -23,11 +23,17 @@ export interface Todo extends BaseTodo {
 	title: string
 	description: string
 	oneDate: string
-	cardColor:string
-	isCompleted:boolean
+	cardColor: string
+	isCompleted: boolean
 	timestamps: {
 		createdOn: string
 		modifiedOn: string
 		completedOn?: string
 	}
+}
+
+export interface BrowseResponse {
+	status: string
+	message: string
+	todos: Todo[]
 }

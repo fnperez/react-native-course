@@ -1,26 +1,32 @@
-import { useSelector } from 'react-redux'
+import React from 'react'
 import { Title } from '../../styles/text'
-import { Filled } from '../../styles/button'
-import { useAppDispatch } from '../../store'
 import { Container, SafeContainer } from '../../styles/wrapper'
-import { logout } from '../../features/data/authSlice/authSlice'
-import { selectLoggedUser } from '../../features/data/authSlice/selectors'
+import useHome from '../../presenters/Home/useHome'
+import { FlatList, RefreshControl } from 'react-native'
+import { Todo } from '../../services/todos/types'
 
 const Home = () => {
-  const dispatch = useAppDispatch()
-  const loggedUser = useSelector(selectLoggedUser)
+  const presenter = useHome()
+  console.log("myTodos ", presenter) 
 
+  const renderItem = ({ item: todo }: { item: Todo }) => (
+    <Title>{todo.title}</Title>
+  )
+  
   return (
     <SafeContainer>
       <Container>
-        <Title>Hello {loggedUser.email}!</Title>
-
-        <Filled
-          onPress={() => {
-            dispatch(logout())
-          }}>
-          Logout
-        </Filled>
+        <FlatList 
+          data={presenter.todos}
+          renderItem={renderItem}
+          refreshControl={
+            <RefreshControl
+              onRefresh={presenter.onRefresh}
+              refreshing={presenter.isLoading}
+              tintColor='#FFFFFF'
+            />
+          }
+        />
       </Container>
     </SafeContainer>
   )
