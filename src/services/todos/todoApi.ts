@@ -3,8 +3,8 @@ import { AddTodo, EditTodo } from './types'
 
 export const todoApi = createApi({
 	reducerPath: 'todoApi',
-	baseQuery: fetchBaseQuery({ 
-		baseUrl:' http://localhost:3000/api/v1/todos'
+	baseQuery: fetchBaseQuery({
+		baseUrl: ' http://localhost:3000/api/v1/todo'
 	}),
 	endpoints: (builder) => ({
 		browse: builder.query({
@@ -14,27 +14,27 @@ export const todoApi = createApi({
 			query: (id: string) => `/${id}`
 		}),
 		edit: builder.mutation({
-			query:( payload: EditTodo) => ({
+			query: (payload: EditTodo) => ({
 				url: `/${payload._id}`,
 				method: 'PUT',
 				body: payload
 			})
 		}),
 		add: builder.mutation({
-			query:( payload: AddTodo ) => ({
+			query: (payload: AddTodo) => ({
 				url: '/',
 				method: 'POST',
 				body: payload
 			})
 		}),
 		delete: builder.mutation({
-			query:( id: string ) => ({
+			query: (id: string) => ({
 				url: `/${id}`,
 				method: 'DELETE'
 			})
 		}),
 		complete: builder.mutation({
-			query: ( id: string ) => ({
+			query: (id: string) => ({
 				url: `/${id}`,
 				method: 'PATCH'
 			})
@@ -43,12 +43,12 @@ export const todoApi = createApi({
 })
 
 export const {
-	 useAddMutation,
-	 useCompleteMutation,
-	 useDeleteMutation,
-	 useEditMutation,
-	 useLazyBrowseQuery,
-	 useLazyReadQuery,
-	 useBrowseQuery,
-	 useReadQuery
+	useAddMutation,
+	useCompleteMutation,
+	useDeleteMutation,
+	useEditMutation,
+	useLazyBrowseQuery,
+	useLazyReadQuery,
+	useBrowseQuery,
+	useReadQuery
 } = todoApi
