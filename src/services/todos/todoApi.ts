@@ -5,7 +5,7 @@ export const todoApi = createApi({
   reducerPath: 'todoApi',
   baseQuery: retry(
     fetchBaseQuery({
-      baseUrl: 'http://localhost:3000/api/v1/todo',
+      baseUrl: 'http://10.0.2.2:3000/api/v1/todo',
     }),
     {
       maxRetries: 10,
